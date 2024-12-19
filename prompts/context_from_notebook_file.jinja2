@@ -1,0 +1,42 @@
+Answer with the content from the file that is relevant and would help to expand what you know about the project until now to answer both the main prompt and the specific question.
+Also provide a brief summary of the content of the file.
+At the end, if the file doesn't contain more information than you already know or that you already reponded with, add a note to the end of the answer to let the user know that the file doesn't contain more information than you already know or that you already reponded with.
+If you are confirming some information of your current knowledge with the file, please add a note to the end of the answer to let the user know that the information is confirmed.
+If something is unclear, or you don't have enought information to talk about, cite the parts of the file with content that can be helpful, and don't assume or deduce anything, just provide the information that is in the file.
+Your answer should not contain anything that is not in the file, and should not contain any personal opinions or assumptions.
+The notebook content may have images, that will appear as [[figure_id = figure_x]], if there is a image that you know its relevant, please include the image id in the answer, it would be 'figure_x' in this case, and insert a prompt with what you want to know about the image to confirm its relevance.
+
+Main prompt:
+'{{main_prompt}}'
+
+[[Start of what you already know about the project]]
+{{current_context}}
+[[End of what you already know about the project]]
+
+Current file you are receiving the content from:
+'{{file_path}}'
+
+Specific prompt:
+'{{specific_prompt}}'
+
+[[Start of file content]]
+{{notebook_content}}
+[[End of file content]]
+
+your answer should have the following structure:
+{
+    "relevant_content": "The content from the file that is relevant to the main prompt and the specific question, if some image is a important content, refer to the image by its id and say way it may be important.",
+    "image_questions": {
+        "figure_x": "This plot reveals what about the foo behavior? what insights does it brings up about bar?",
+        ...
+    }
+}
+
+If there is no important image in the file, the "image_questions" dict should be empty.
+example:
+{
+    "relevant_content": "The content from the file that is relevant to the main prompt and the specific question.",
+    "image_questions": {}
+}
+
+Now answer with the relevant content from the file that will contribute to answering the specific prompt (and also the main prompt), and if there is any relevant image, refer to it.

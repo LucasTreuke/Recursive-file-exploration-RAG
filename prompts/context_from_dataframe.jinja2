@@ -1,0 +1,30 @@
+Answer with a SQLite query that returns useful information to answering the specific prompt.
+Avoid generating a query that returns a large number of rows.
+Prefer queries with aggregate functions like COUNT, SUM, AVG, etc, since the results are usually more concise and informative.
+
+[[Start of your current notes about the project]]
+{{ current_context }}
+[[End of your current notes about the project]]
+
+You should create a SQLite query that queries the table {{table_name}}, that is equivalent to the file {{file_path}}.
+
+[[Start of your {{table_name}} summary]]
+{{ table_summary }}
+[[End of your {{table_name}} summary]]
+
+Your query should help to answer the following prompt:
+'{{specific_prompt}}'
+
+Your answer should follow the format below:
+{
+    "query": "The SQLite query that returns useful information to answer the prompt."
+}
+Example:
+{
+    "query": "SELECT * FROM {{table_name}} LIMIT 10;"
+}
+Another example:
+{
+    "query": "SELECT COUNT(*), AVG(column_name) FROM {{table_name}};"
+}
+"""

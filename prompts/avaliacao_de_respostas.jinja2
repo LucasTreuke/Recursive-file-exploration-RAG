@@ -1,0 +1,112 @@
+Você deve avaliar a resposta fornecida para a pergunta de acordo com os seguintes critérios de notas. Considere que todas as partes da pergunta devem ser respondidas corretamente, e que qualquer informação incorreta ou inventada invalida a resposta.
+
+Nota 0 (Resposta incorreta):
+
+A resposta contém informações incorretas ou inventadas.
+A resposta não aborda todas as partes da pergunta.
+Informações adicionais que contradizem a chave de resposta invalidam a resposta.
+
+Nota 1 (Resposta parcialmente correta):
+
+A resposta é parcialmente correta, respondendo a algumas partes da pergunta de maneira válida.
+Não contém informações incorretas ou inventadas.
+Ainda assim, deixa partes da pergunta sem resposta.
+
+Nota 2 (Resposta correta):
+
+A resposta responde corretamente a todas as partes da pergunta.
+Não contém informações incorretas ou inventadas.
+Informações adicionais, se fornecidas, são corretas e complementam a resposta.
+
+
+Critérios Específicos para Avaliar a Resposta:
+
+Integralidade:
+Todas as partes da pergunta foram respondidas corretamente?
+Uma resposta que ignora qualquer parte ou contém erros deve ser penalizada (Nota 0 ou 1).
+
+Aderência à Chave de Resposta:
+A resposta está alinhada à chave de resposta fornecida?
+Respostas que adicionam informações incorretas, mesmo que respondam parte da pergunta, devem ser penalizadas.
+
+Precisão e Conformidade:
+A resposta é precisa e livre de invenções ou informações incorretas?
+Informações incorretas ou inventadas invalidam a resposta (Nota 0).
+
+Informações Extras:
+Informações adicionais corretas não devem ser penalizadas, mas não são obrigatórias.
+Extras incorretos invalidam a resposta (Nota 0).
+
+---
+
+
+Sua resposta com a avalição deve seguir o formato:
+{
+    "integralidade": ["Responde a todas as partes", "Responde parcialmente" ou "Não responde"],
+    "aderencia a chave de resposta": ["Sim", "Parcialmente" ou "Não"],
+    "precisao e conformidade": ["Precisa", "Parcialmente precisa" ou "Imprecisa"],
+    "informacoes extras": ["Sem informações extras", "Corretas e relevantes", "Corretas, mas irrelevantes" ou "Incorretas"],
+    "nota final": [0, 1 ou 2],
+    "justificativa da nota": "Explique brevemente o motivo da nota atribuída, referenciando os critérios relevantes."
+}
+
+Exemplo de correção:
+
+Pergunta:
+"Qual é a capital do Brasil e quando foi fundada?"
+
+Resposta do Candidato:
+"A capital do Brasil é Brasília, fundada em 1960."
+
+Chave de Resposta:
+"Brasília, fundada em 1960"
+
+Sua Avaliação:
+{
+    "integralidade": "Responde a todas as partes",
+    "aderencia a chave de resposta": "Sim",
+    "precisao e conformidade": "Precisa",
+    "informacoes extras": "Corretas e relevantes",
+    "nota final": 2,
+    "justificativa da nota": "A resposta é completamente correta e aborda todas as partes da pergunta. Não contém informações incorretas ou inventadas."
+}
+
+Exemplo com Erros:
+
+Pergunta:
+"Qual é a capital do Brasil e quando foi fundada?"
+
+Resposta do Candidato:
+"A capital do Brasil é Brasília, fundada em 1950."
+
+Chave de Resposta:
+"Brasília, fundada em 1960"
+
+Sua Avaliação:
+{
+    "integralidade": "Responde a todas as partes",
+    "aderencia a chave de resposta": "Não",
+    "precisao e conformidade": "Imprecisa",
+    "informacoes extras": "Sem informações extras",
+    "nota final": 0,
+    "justificativa da nota": "A resposta contém uma data incorreta, o que invalida a resposta mesmo que o nome da capital esteja correto."
+}
+
+---
+
+Por favor, avalie a resposta fornecida com base nos critérios acima e atribua uma nota.
+
+Pergunta:
+{{pergunta}}
+
+Resposta do Candidato:
+{{resposta}}
+
+Chave de Resposta:
+{{chave_de_resposta}}
+
+Todas as informações da base de conhecimento (para verificar se existe alguma informação incorreta ou inventada):
+{{base_de_conhecimento}}
+
+
+Nota: Siga os critérios estritamente para garantir consistência e justiça na avaliação.

@@ -1,0 +1,45 @@
+You should evaluate your current knowledge of the project, and identify the files that should be explored to provide information necessary for answering the user prompt.
+If the information in your current understanding of the project is insufficient to answer the user prompt, you should explore the project files to find the necessary information.
+If it is sufficient, you can skip the exploration process and directly answer the user prompt based on your current knowledge.
+However, when it is sufficient and there is still a unexplored file that is relevant to the understanding of the current context, and necessary for a complete answer, you should explore it and not go for the answer yet.
+Avoid exploring files that were already explored in the previous prompts.
+Avoid exploring files that are not relevant to the current context.
+Avoid exploring files when your current understanding of the project is enough to answer the prompt, unless there is a need to update the internal context of the project.
+Avoid exploring files that you cannot open, if your understanding of the project says that a file, or file extension is not accessible, you should not explore it.
+
+[[start of your current understanding of the project]]
+{{current_context}}
+[[end of your current understanding of the project]]
+Avoid exploring files when your current understanding of the project is enough to answer the prompt.
+
+[[start of your current understanding of the project]]
+{{current_context}}
+[[end of your current understanding of the project]]
+
+Prompt that the context should answer:
+'{{main_prompt}}''
+
+Follow this example of response when there is a need for exploration, this would be a case where the current understanding is not enough to answer the prompt about foo:
+{
+    "explore": {
+        "{{example_datasource_path}}": {
+            "relative path/to/file_1.txt": "I want to know how foo is related to bar. Does this file contain any information about it?",
+            "file 2.csv": "I want to know the mean value for foo grouped by bar."
+        },
+        "path of other possible datasource if available": {
+            "file_1.md": "Is there anything related to foo in this file?",
+        }
+    },
+    "give_final_answer": False
+}
+You need to adapt the example above to the current prompt and the files that you need to explore.
+On the "explore": use the base path of the datasource as the outer key, and the file path that comes after the base path as the inner key.
+
+When you have context and there is no need to explore more files, answer with give_final_answer beeing True.
+If exploration is not needed, you should answer with:
+{
+    "explore": {},
+    "give_final_answer": True
+}
+
+Answer with the files that you should explore and the information that is necessary for answering the prompt.

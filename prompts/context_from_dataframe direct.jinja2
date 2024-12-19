@@ -1,0 +1,22 @@
+Answer with a SQLite query that answer the specific prompt.
+
+You should create a SQLite query that queries the table {{table_name}} and answer:
+'{{specific_prompt}}'
+
+[[Start of your {{table_name}} summary]]
+{{ table_summary }}
+[[End of your {{table_name}} summary]]
+
+Your answer should follow the format below:
+{
+    "query": "The SQLite query that returns useful information to answer the prompt."
+}
+Example:
+{
+    "query": "SELECT * FROM {{table_name}} LIMIT 10;"
+}
+Another example:
+{
+    "query": "SELECT COUNT(*), AVG(column_name) FROM {{table_name}};"
+}
+"""
